@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-center-atom.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="数据库," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="这篇文章主要是描述在实际使用mysql时会用到的东西，一些常用命令等。而更深层的数据库设计等等和理论知识会在后面更新。1.下载xampp软件包，他是一个服务器的套装，包含多款开源的服务器，例如MySQL，PHP…下载地址：xampp 2.安装之后打开软件文件夹，运行xampp-control.exe开启服务 点击mysql右侧的start，再点击右侧的shell。 3.连接Mysql服务器 mys">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库初探(一）">
+<meta property="og:url" content="http://fengzzf.github.io/2020/03/08/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%9D%E6%8E%A2(%E4%B8%80)/index.html">
+<meta property="og:site_name" content="风中追风">
+<meta property="og:description" content="这篇文章主要是描述在实际使用mysql时会用到的东西，一些常用命令等。而更深层的数据库设计等等和理论知识会在后面更新。1.下载xampp软件包，他是一个服务器的套装，包含多款开源的服务器，例如MySQL，PHP…下载地址：xampp 2.安装之后打开软件文件夹，运行xampp-control.exe开启服务 点击mysql右侧的start，再点击右侧的shell。 3.连接Mysql服务器 mys">
+<meta property="og:image" content="http://fengzzf.github.io/2020/03/08/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%9D%E6%8E%A2(%E4%B8%80)/charset.PNG">
+<meta property="article:published_time" content="2020-03-08T14:56:10.000Z">
+<meta property="article:modified_time" content="2020-03-08T15:06:12.728Z">
+<meta property="article:author" content="Sam Guo">
+<meta property="article:tag" content="数据库">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://fengzzf.github.io/2020/03/08/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%9D%E6%8E%A2(%E4%B8%80)/charset.PNG">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://fengzzf.github.io/2020/03/08/数据库初探(一)/"/>
+
+
+
+
+
+  <title>数据库初探(一） | 风中追风</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">风中追风</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Welcome</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="https://crowfordtt.github.io/" target="_blank" rel="section noopener">
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://fengzzf.github.io/2020/03/08/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%9D%E6%8E%A2(%E4%B8%80)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sam Guo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="风中追风">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">数据库初探(一）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-08T22:56:10+08:00">
+                2020-03-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/03/08/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%9D%E6%8E%A2(%E4%B8%80)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/03/08/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%9D%E6%8E%A2(%E4%B8%80)/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> View
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  8
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这篇文章主要是描述在实际使用mysql时会用到的东西，一些常用命令等。而更深层的数据库设计等等和理论知识会在后面更新。<br>1.下载xampp软件包，他是一个服务器的套装，包含多款开源的服务器，例如MySQL，PHP…<br>下载地址：<a href="https://www.apachefriends.org/download.html" target="_blank" rel="noopener">xampp</a></p>
+<p>2.安装之后打开软件文件夹，运行xampp-control.exe开启服务 点击mysql右侧的start，再点击右侧的shell。</p>
+<p>3.连接Mysql服务器</p>
+<p><strong>mysql.exe -hlocalhost -P3306 -uroot -p</strong></p>
+<p>简写形式</p>
+<p><strong>mysql -uroot</strong></p>
+<p>3.常用Mysql管理命令(命令后有分号)</p>
+<p><strong>quit;</strong>             退出服务器的连接</p>
+<p><strong>show databases;</strong>   显示服务器上当前所有的数据库</p>
+<p><strong>use 数据库名;</strong>   进入指定的数据库</p>
+<p><strong>show tables;</strong>   显示当前数据库中所有的数据表</p>
+<p><strong>desc 表名称;</strong>   描述表中有哪些列</p>
+<p>4.Mysql常用的SQL命令<br>SQL(<strong>Structured Query Language</strong>),结构化查询语言，用于对关系型数据库服务器中的数据进行<strong><em>增删改查</em></strong>的操作。</p>
+<p>SQL语言最早是由IBM提出，后提交给了ISO，最终成为了数据库行业的标准语言，当前标准的SQL 命令可以被绝大多数的关系型数据库所支持。</p>
+<h2 id="SQL命令的两种执行方式"><a href="#SQL命令的两种执行方式" class="headerlink" title="SQL命令的两种执行方式"></a>SQL命令的两种执行方式</h2><p>(1)交互模式：客户端输入一行，点击回车，服务器执行一行。适用于临时性的查看数据。</p>
+<p>mysql -uroot 回车</p>
+<p>（2）脚本模式：客户端把要执行的命令写在一个文本文件中，一次性的提交给服务器执行。适用于批量的增删改查。脚本后缀为.sql。脚本内命令不区分大小写。</p>
+<p>mysql -uroot &lt; 脚本路径   回车即可</p>
+<h2 id="SQL-语法规范"><a href="#SQL-语法规范" class="headerlink" title="SQL 语法规范"></a>SQL 语法规范</h2><p>（1）每条SQL语句必须以英文结尾，一条语句可以跨越多行，见到分号则认为语句结束。</p>
+<p>（2）若第n行语句有错误，则此语句以及后续的语句都不能再执行。</p>
+<p>（3）SQL命令不区分大小写，习惯上数据库关键字用大写关键字用小写。</p>
+<h2 id="日常开发中常用的SQL命令"><a href="#日常开发中常用的SQL命令" class="headerlink" title="日常开发中常用的SQL命令"></a>日常开发中常用的SQL命令</h2><p>(1)丢弃指定的数据库，如果存在的话</p>
+<p><strong>DROP DATABASE IF EXISTS XX；</strong></p>
+<p>(2)创建新的数据库</p>
+<p><strong>CREATE DATABASE XX;</strong></p>
+<p>(3)进入刚刚创建的数据库</p>
+<p><strong>USE XX；</strong></p>
+<p>(4)创建保存数据的表</p>
+<p>示例创建一个student表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE student(</span><br><span class="line">sid INT,</span><br><span class="line">name VARCHAR(8),</span><br><span class="line">sex VARCHAR(1),</span><br><span class="line">score INT</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>(5)向数据表中插入数据</p>
+<p>INSERT INTO student VALUE(‘1’,’tom’,’M’,’80’);</p>
+<p>(6)查询表中所有数据</p>
+<p>SELECT * FROM student;</p>
+<p>(7)修改数据</p>
+<p>UPDATE student SET score=’66’,sex=’F’ WHERE sid=’2’;</p>
+<p>(8)删除数据</p>
+<p>DELETE FROM student WHERE sid=’3’;</p>
+<h2 id="标准SQL语句分类"><a href="#标准SQL语句分类" class="headerlink" title="标准SQL语句分类"></a>标准SQL语句分类</h2><p><strong>DDL：Data Define Language</strong>    定义数据结构</p>
+<p>[<strong>CREATE/DROP/ALTER</strong>]</p>
+<p><strong>DML:Data Munipulate Language</strong> 操作数据</p>
+<p>[<strong>INSERT/DELETE/UPDATE</strong>]</p>
+<p><strong>DQL：Data Query Language</strong> 查询数据</p>
+<p>[<strong>SELECT</strong>]</p>
+<p><strong>DCL:Data Control Language</strong> 控制用户权限</p>
+<p>[<strong>GRANT(授权)/REVOKE(收权)</strong>]</p>
+<p>解决表单中中文乱码问题，设置数据库字符编码为Unicod，即UTF-8；</p>
+<p><img src="charset.PNG" alt=""></p>
+<p>(1)编辑器设置为UTF-8<br>(2)脚本第一行加</p>
+<p><strong>SET NAMES utf8;</strong></p>
+<p>(3)创建数据库是 CREAT DATABASE XX charset=utf8;</p>
+<h2 id="MySQL中的列类型"><a href="#MySQL中的列类型" class="headerlink" title="MySQL中的列类型"></a>MySQL中的列类型</h2><p>创建数据表的时候，指定的列可以存储的数据类型。</p>
+<p>CREAT TABLE book(bid <strong>列类型</strong>)</p>
+<p>(1)数值类型</p>
+<p>TINYINT 微整型，占1个字节 范围-128~127</p>
+<p>SMALLINT 小整型，占2个字节 范围-32768<br>~32767</p>
+<p>INT 整型，占4个字节<br>范围 -2147483648-2147483647</p>
+<p>BIGINT 大整型，占8个字节</p>
+<p>FLOAT 单精度浮点型，占4个字节范围比INT大的多，可能产生计算误差。</p>
+<p>DOUBLE 双精度浮点型，占8个字节，范围比BIGINT大的多</p>
+<p>DECIMAL(M,D) 定点小数，不会产生计算误差，M代表总的有效位数，D代表小数点后的有效位数</p>
+<p>BOOL 布尔值–不能加引号 实际上是TINYINT。</p>
+<p>(2)日期时间类型—必须添加引号</p>
+<p>DATE 日期型 ‘2018-12-31’</p>
+<p>TIME 时间型 ‘14:22:30’</p>
+<p>DATETIME 日期时间型 ‘2018-12-31 14:22:30’</p>
+<p>(3)字符串类型—必须添加引号</p>
+<p>VARCHAR(M) 变长字符串，不会产生空间浪费，操作速度相对较慢，M最大值65532.</p>
+<p>CHAR(M)  定长字符串，可能产生空间浪费，操作速度较快，M最大值是255：用于储存手机号码，身份证号等固定长度的字符。</p>
+<p>TEXT(M) 大型变长字符串，最多存2G。</p>
+<h2 id="列约束"><a href="#列约束" class="headerlink" title="列约束"></a>列约束</h2><p>MySQL 可以对插入的数据进行特定的验证，只有满足条件才允许插入到数据表中，否则被认为是非法的插入。</p>
+<p>例如：一个人的性别只能是男或者女，一个人的年龄0~100之间。</p>
+<p>(1)主键约束—PRIMARY KAY</p>
+<p>声明了主键列上的值不能出现重复，表中查询的纪录会按照主键有小到大排序–加快查找的速度。通常主键添加到编号列中。<br>注意：一个表中只能有一个主键</p>
+<p>(2)唯一约束—UNIQUE </p>
+<p>声明了唯一约束的列上不能插入重复的值，允许插入NULL,而且允许插入多个NULL</p>
+<p>(3)非空约束—NOT NULL</p>
+<p>声明了非空约束的列上不能插入NULL</p>
+<p>(4)默认值约束—DEFAULT</p>
+<p>可以使用DEFAULT 关键字声明默认值，有两种方式可以应用默认值</p>
+<p>INSERT INTO xz_laptop_famili VALUES(40,’苹果’，DEFAULT)；</p>
+<p>INSERT INTO xz_laptop_family(fid,fname) VALUES(50,’华硕’)；</p>
+<p>(5)检查约束—CHECK</p>
+<p>检查约束可以对插入的数据进行检验</p>
+<p>CREAT TABLE student(age TINYINT CHECK(age&gt;=18 AND age&lt;=60));</p>
+<p>mysql不支持检查约束，会降低数据的插入速度。</p>
+<p>(6)</p>
+<p>声明了外键约束的列，取值必须在另一个表的主键列上出现过，列类型要保持一致，取值可以是NULL。</p>
+<p>FOREIGN KEY(familyId) REFERENCES xz_laptop_family(fid)</p>
+<p>2.MySQL中的自增列</p>
+<p>AUTO_INCREMENT:自动增长，假如一个列声明了自增列，无需手动赋值，直接设置为NULL，会获取当前的最大值，然后加1插入。</p>
+<p>注意：自增列允许手动赋值<br>只适用于整型的主键列上</p>
+<p>3.简单查询</p>
+<p>(1)查询特定的列</p>
+<p>示例：查询所有员工的姓名，工资，生日</p>
+<p>SELECT ename，salary，birthday FROM emp；</p>
+<p>(2)查询所有的列</p>
+<p>SELECT * FROM emp；</p>
+<p>(3)给列起别名</p>
+<p>SELECT ename AS 姓名，salary AS 工资 FROM emp；</p>
+<p><strong>注意：AS关键字是可以省略的，保留空格。</strong></p>
+<p>(4)只显示不同的记录/合并相同的记录</p>
+<p>SELECT DISTINCT deptld(想合并的列) FROM emp;</p>
+<p>(5)在查询时执行计算</p>
+<p>示例：计算2*33/47-8+10</p>
+<p>SELECT 2*33/47-8+10;</p>
+<p>练习：查询出所有员工的姓名及其年薪</p>
+<p>SELECT ename，salary*12 FROM emp；</p>
+<p>(6)查询结果集的排序</p>
+<p>示例:查询所有的部门，结果按照部门编号升序排序</p>
+<p>SELECT * FROM dept ORDER BY did(部门编号) ASC;#ascendant</p>
+<p>降序</p>
+<p>SELECT * FROM dept ORDER BY did DESC;#descendant</p>
+<p>练习：查询所有员工，如果按照工资降序排序，如果工资相同，按照姓名排序。</p>
+<p>SELECT * FROM emp ORDER BY salary DESC，ename;</p>
+<p><strong>ORDER BY 可以按照数值，日期/时间，字符串来排序 默认按照ASC升序排列</strong></p>
+<p>(7)条件查询</p>
+<p>示例：查询出编号为5的员工所有信息</p>
+<p>SELECT * FROM emp WHERE eid=5;</p>
+<p>查询出1991-1-1后出生的员工</p>
+<p>SELECT * FROM emp WHERE birthday &gt;’1991-1-1’;</p>
+<p>查询出没有明确部门的员工的所有信息</p>
+<p>SELECT * FROM emp WHERE deptld IS NULL；</p>
+<p>查询出有明确部门的员工</p>
+<p>SELECT * FROM emp WHERE deptld IS NOT NULL;</p>
+<p>练习：查询出工资大于600的女员工所有信息</p>
+<p>SELECT * FROM emp WHERE salary &gt; 6000 AND sex = 0;</p>
+<p>查询出工资为5000以下，7000以上的员工的所有信息</p>
+<p>SELECT * FROM emp WHERE salary &lt;5000 OR salary &gt;7000;</p>
+<p>查询出10号部门和30号部门员工所有信息</p>
+<p>SELECT * FROM emp WHERE deptld = 10 OR deptld = 30;</p>
+<p>SELECT * FROM emp WHERE deptld IN(10,30);</p>
+<p>……NOT IN(10,30);</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">IS NULL&#x2F;IS NOT NULL</span><br><span class="line">AND&#x2F;OR</span><br><span class="line">BETWEEN .. AND..&#x2F;NOT BETWEEN ..AND..</span><br><span class="line">IN()&#x2F;NOT IN()</span><br></pre></td></tr></table></figure>
+
+<p>(8)模糊条件查询</p>
+<p>示例：查询出姓名含有字母e的员工所有信息</p>
+<p>SELECT * FROM emp WHERE ename LIKE ‘%e%’</p>
+<p>练习：查询出姓名中以e结尾的员工所有信息</p>
+<p>SELECT * FROM emp WHERE ename LIKE ‘%e’;</p>
+<p><strong>SQL中提供了两模糊查询的字符</strong></p>
+<ul>
+<li>%   可以匹配任意多个字符   &gt;=0</li>
+<li>_   可以匹配任意一个字符   =1</li>
+</ul>
+<p><strong>注意:以上两个匹配不能和=使用，必须使用LIIKE关键字</strong></p>
+<p>(9)分页查询</p>
+<p>假如查询的结果集中有太多的数据，一次显示不完，需要分页显示。</p>
+<p>需要有两个条件：当前的页码，每页的数据量</p>
+<p>SELECT * FROM emp LIMIT start，count;</p>
+<p>start:是一个数字，从结果集中的哪1条开始读取，第一条称为0。</p>
+<p>count：是一个数字，最多读取的行数。</p>
+<p>start=(页码-1)*count</p>
+<p>下篇博客带来MySQL的复杂条件查询</p>
+
+      
+    </div>
+    
+    
+    
+
+    <div>
+          
+            
+          
+    </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>对你有帮助？求鼓励</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Sam Guo 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Sam Guo 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Sam Guo
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://fengzzf.github.io/2020/03/08/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%9D%E6%8E%A2(%E4%B8%80)/" title="数据库初探(一）">http://fengzzf.github.io/2020/03/08/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%9D%E6%8E%A2(%E4%B8%80)/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag"># 数据库</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/02/26/The%20Key%20To%20Accelerating%20Your%20Coding%20Skills/" rel="next" title="The Key To Accelerating Your Coding Skills">
+                <i class="fa fa-chevron-left"></i> The Key To Accelerating Your Coding Skills
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/03/09/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%9D%E6%8E%A2(%E4%BA%8C)/" rel="prev" title="数据库初探(二)">
+                数据库初探(二) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Sam Guo" />
+            
+              <p class="site-author-name" itemprop="name">Sam Guo</p>
+              <p class="site-description motion-element" itemprop="description">Code just for fun.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Crowfordtt" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:501018786@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/fengzzf2" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://instagram.com/fengzhongzhuifeng62" target="_blank" title="Instagram">
+                      
+                        <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL命令的两种执行方式"><span class="nav-number">1.</span> <span class="nav-text">SQL命令的两种执行方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL-语法规范"><span class="nav-number">2.</span> <span class="nav-text">SQL 语法规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日常开发中常用的SQL命令"><span class="nav-number">3.</span> <span class="nav-text">日常开发中常用的SQL命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标准SQL语句分类"><span class="nav-number">4.</span> <span class="nav-text">标准SQL语句分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL中的列类型"><span class="nav-number">5.</span> <span class="nav-text">MySQL中的列类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列约束"><span class="nav-number">6.</span> <span class="nav-text">列约束</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sam Guo</span>
+
+  
+</div>
+
+<!--
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+-->
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> Visitor
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> Total Visit
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'mlbMEhn9uTjoOHwA64cWAQjh-gzGzoHsz',
+        appKey: 'dsf3u7eq02Noe6ohn1Q5BfiY',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+<script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+</body>
+</html>

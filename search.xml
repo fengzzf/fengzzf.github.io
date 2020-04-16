@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Markdown语法</title>
+    <url>/2020/01/18/Markdown%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<p>Markdown是一种纯文本格式的标记语言。后缀名.md 通过简单的语法<br>标记，使文本内容具有一定的格式。而Markdown本身的语法比较简单，<br>学习成本比较低，为我们提供很多便利。</p>
+<h1 id="一-标题"><a href="#一-标题" class="headerlink" title="一,标题"></a>一,标题</h1><p>在文字前面加#来表示，但要注意#和后面的内容之间是有一个空格的。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 这里一级标题</span><br><span class="line">## 这是二级标题</span><br><span class="line">### 这是三级标题</span><br><span class="line">#### 这是四级标题</span><br><span class="line">...........</span><br></pre></td></tr></table></figure>
+
+<p>示例：</p>
+<h1 id="这里一级标题"><a href="#这里一级标题" class="headerlink" title="这里一级标题"></a>这里一级标题</h1><h2 id="这是二级标题"><a href="#这是二级标题" class="headerlink" title="这是二级标题"></a>这是二级标题</h2><h3 id="这是三级标题"><a href="#这是三级标题" class="headerlink" title="这是三级标题"></a>这是三级标题</h3><h4 id="这是四级标题"><a href="#这是四级标题" class="headerlink" title="这是四级标题"></a>这是四级标题</h4><h2 id="………"><a href="#………" class="headerlink" title="……….."></a>………..</h2><h1 id="二-字体"><a href="#二-字体" class="headerlink" title="二,字体"></a>二,字体</h1><p>1.加粗<br>文字左右分别用两个<em>号包起来<br>2.斜体<br>文字左右分别用一个</em>号包起来<br>3.斜体加粗<br>文字左右分别用三个*号包起来<br>4.删除线<br>文字左右分别用两个~~号包起来</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">**这是加粗的字体**</span><br><span class="line">*这是斜体*</span><br><span class="line">***这是斜体并加粗***</span><br><span class="line">~~这是加删除线的文字~~</span><br></pre></td></tr></table></figure>
+<p>示例：<br><strong>这是加粗的字体</strong><br><em>这是斜体</em><br><strong><em>这是斜体并加粗</em></strong><br><del>这是加删除线的文字</del></p>
+<h1 id="三，引用"><a href="#三，引用" class="headerlink" title="三，引用"></a>三，引用</h1><p>在引用的文字前面加&gt;即可</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;这是引用的内容</span><br></pre></td></tr></table></figure>
+<p>示例：</p>
+<blockquote>
+<p>这是引用的内容</p>
+</blockquote>
+<h1 id="四，分割线"><a href="#四，分割线" class="headerlink" title="四，分割线"></a>四，分割线</h1><p>三个或三个以上的-或*都可以</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">***</span><br></pre></td></tr></table></figure>
+<h2 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h2><hr>
+<h1 id="五，图片"><a href="#五，图片" class="headerlink" title="五，图片"></a>五，图片</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![图片alt](图片地址 &quot;图片title&quot;)</span><br><span class="line">图片alt是图片下方的文字</span><br><span class="line">图片title是鼠标移到图片上是显示的文字</span><br><span class="line">图面title可加可不加</span><br><span class="line">图片地址在本地填路径，支持相对路径和绝对路径.网上图片直接填地址即可</span><br></pre></td></tr></table></figure>
+
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![插入图片](\Users\86176\Pictures\avatar.jpg)</span><br></pre></td></tr></table></figure>
+<p>效果：<br><img src="%5CUsers%5C86176%5CPictures%5Cavatar.jpg" alt="插入图片"></p>
+<hr>
+<h1 id="六，超链接"><a href="#六，超链接" class="headerlink" title="六，超链接"></a>六，超链接</h1><p>语法：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[超链接名](超链接地址)</span><br></pre></td></tr></table></figure>
+<p>示例:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[Github](https:&#x2F;&#x2F;github.com&#x2F;)</span><br></pre></td></tr></table></figure>
+<p>效果：<br><a href="https://github.com/" target="_blank" rel="noopener">Github</a></p>
+<hr>
+<h1 id="七-列表"><a href="#七-列表" class="headerlink" title="七,列表"></a>七,列表</h1><p>语法：<br>无序列表用- + *任何一种都可以</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- 列表内容</span><br><span class="line">+ 列表内容</span><br><span class="line">* 列表内容</span><br><span class="line"></span><br><span class="line">注意：符号和内容之间要有一个空格</span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<ul>
+<li>列表内容</li>
+</ul>
+<ul>
+<li>列表内容</li>
+</ul>
+<ul>
+<li>列表内容</li>
+</ul>
+<p><strong>- 有序列表</strong></p>
+<p>语法：<br>数字加点</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. 列表内容</span><br><span class="line">2. 列表内容</span><br><span class="line">3. 列表内容</span><br><span class="line">注意：.与内容之间有空格</span><br></pre></td></tr></table></figure>
+<ol>
+<li>列表内容</li>
+<li>列表内容</li>
+<li>列表内容</li>
+</ol>
+<p><strong>- 列表嵌套</strong><br>上一级和下一级之间敲三个空格即可</p>
+<ul>
+<li>一级无序列表内容</li>
+</ul>
+<ul>
+<li><p>二级无序列表内容</p>
+</li>
+<li><p>二级无序列表内容</p>
+</li>
+<li><p>二级无序列表内容</p>
+</li>
+<li><p>一级无序列表内容</p>
+</li>
+</ul>
+<ol>
+<li>二级有序列表</li>
+<li>二级有序列表</li>
+<li>二级有序列表</li>
+</ol>
+<hr>
+<h1 id="八，代码"><a href="#八，代码" class="headerlink" title="八，代码"></a>八，代码</h1><p>语法：<br>单行代码：代码之间分别用一个反引号包起来</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#96;这里是代码&#96;</span><br></pre></td></tr></table></figure>
+<p>代码块：代码之间分别用三个反引号包起来</p>
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">这里是代码</span><br><span class="line">这里是代码</span><br><span class="line">这里是代码</span><br><span class="line">这里是代码</span><br><span class="line">注意：反引号为大键盘数字1左边的按钮</span><br></pre></td></tr></table></figure>
+<p><code>这里是代码</code></p>
+<p>基本语法就这么多，基本满足普通用户的使用了。想要学习制作表格<br>或者流程图以及更多内容可以阅读Markdown官方文档。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.jianshu.com/p/191d1e21f7ed" target="_blank" rel="noopener">Markdown基本语法</a></p>
+]]></content>
+      <categories>
+        <category>程序员必会的基本工具</category>
+      </categories>
+      <tags>
+        <tag>基本工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>The Key To Accelerating Your Coding Skills</title>
+    <url>/2020/02/26/The%20Key%20To%20Accelerating%20Your%20Coding%20Skills/</url>
+    <content><![CDATA[<p>最近读皓哥 @hao chen的专栏左耳听风 其中推荐阅读了一遍博客，这是一篇教你如何有效的快速的提高你的编程能力的文章，我读完后有很大的收获。<br>原文地址 <a href="http://blog.thefirehoseproject.com/posts/learn-to-code-and-be-self-reliant/" target="_blank" rel="noopener">点击这里</a></p>
+<h1 id="The-Key-To-Accelerating-Your-Coding-Skills"><a href="#The-Key-To-Accelerating-Your-Coding-Skills" class="headerlink" title="The Key To Accelerating Your Coding Skills"></a>The Key To Accelerating Your Coding Skills</h1><h1 id="提高编程能力的关键"><a href="#提高编程能力的关键" class="headerlink" title="提高编程能力的关键"></a>提高编程能力的关键</h1><p>When you learn to code, there is a moment when everything begins to change. At Firehose, we like to call this the inflection point of coding. After this phase, the way you operate as a developer will be dramatically different. Building up to the inflection point is the process of becoming self-sufficient in programming, to the point where you no longer need any hand-holding. It can be a frustrating experience, but once it’s behind you, it is incredibly empowering.</p>
+<p><img src="http://165.227.208.227/posts/wp-content/uploads/2015/04/graph-1.png" alt=""></p>
+<p>At Firehose, our goal isn’t just to teach you Ruby, how to build web applications, or how to write tests. Although we do teach these skills and more, our primary goal is to accelerate students past the inflection point so they gain the ability to solve any problem they encounter. We believe that being able to problem solve on your own is an invaluable skill, and this method of teaching will take you much further than simply learning how to build a set of apps.</p>
+<h2 id="The-Tutorial-Phase-3-8-weeks-of-serious-coding"><a href="#The-Tutorial-Phase-3-8-weeks-of-serious-coding" class="headerlink" title="The Tutorial Phase (3-8 weeks of serious coding)"></a><strong>The Tutorial Phase (3-8 weeks of serious coding)</strong></h2><p>When you start out learning to code, there’s a lot of information that you don’t know yet. This information is called domain-specific knowledge. Examples include: knowing how to write a loop in ruby or how to extract something from a database using Ruby on Rails. Domain-specific knowledge encompasses the protocols unique to a certain programming environment.</p>
+<p>The first step to becoming a self-sufficient developer is learning how to do specific tasks. Once you master certain tasks, the broad strokes of how the pieces fit together will start to become apparent. Over time, you’ll begin to recognize patterns and eventually, the things that initially seemed confusing and foreign will become second nature.</p>
+<h2 id="For-students-starting-out-the-most-important-skill-to-acquire-is-attention-to-detail"><a href="#For-students-starting-out-the-most-important-skill-to-acquire-is-attention-to-detail" class="headerlink" title="For students starting out, the most important skill to acquire is attention to detail."></a><strong>For students starting out, the most important skill to acquire is attention to detail.</strong></h2><p>Paying close attention to detail is important when going through materials like documentation or tutorials. Even the most minor typos and misspellings will result in error messages or bugs. Seeing error messages is a frustrating experience at first, but it’s a crucial step in the learning process. Dealing with error messages and problems in this phase teaches you one of the most important skills of programming within a safe environment: being detail-oriented.</p>
+<p><strong>Debugging error messages is incredibly important.</strong> The fact of the matter is, error messages are just a part of programming: they are seen by inexperienced and very experienced developers alike. The only difference is, the more experience you have dealing with error messages, the less time you’ll need to spend trying to fix them. Here’s why:</p>
+<ul>
+<li><p>Over time, you will learn how to read error messages and extract the relevant details of the problem quickly. The first time you see an error message, it will take you a while to decode what it actually means. But after you’ve seen hundreds of error messages (and you will see hundreds!), you will be able to pinpoint the problem’s location and the relevant details you need in order to fix it.</p>
+</li>
+<li><p>You should learn from each error message that you resolve. Don’t just fix the error and be done with it; understand what is wrong with the code you’re fixing. By learning from each of your errors, the next time you make the same mistake, you’ll be able to fix it much faster.</p>
+</li>
+<li><p>Initially, you will probably ask for help on each error message you see. Over time, you’ll learn to ask for help less frequently by double-checking your code and conducting smart Google searches.</p>
+</li>
+</ul>
+<p>In the tutorial phase, you will follow instruction. At first, you’ll find it challenging to follow instructions and error messages will happen frequently. Over time, you’ll develop the skill to debug errors and pay better attention to small details, and you’ll be able to make progress much quicker. As you’re wrapping up the tutorial phase, you’ll notice you’re able to write code at a much more rapid pace.</p>
+<p>At this point, some people feel confident– like they’re ready to ditch the training wheels and start building things without structured guidance– and will happily dive into the deep end. Other students will reach for more tutorials, trying to obtain more domain-specific knowledge in search of a “full understanding.” Unfortunately, tutorials will only take you so far, and true confidence isn’t found in tutorials or guides. True confidence comes from struggling through a problem you have no idea how to solve, and discovering a solution on your own.</p>
+<p><strong><em>The dirty little secret of programming is…</em></strong></p>
+<p>You will never know everything you need to know to solve all your problems. Going into the journey, you probably envisioned yourself eventually learning everything you need to learn, and then being squared away. This moment will never happen.</p>
+<p>Programming is a life-long learning experience. Experienced software engineers seek to find solutions to problems they haven’t solved yet because it gives them the opportunity to learn more. If you find yourself waiting for the moment when you finally feel like you know everything there is to know about coding, know this: the day you’re waiting for will never come. And that is a wonderful thing.</p>
+<p><img src="http://165.227.208.227/posts/wp-content/uploads/2015/04/learn-to-code-1.jpg" alt=""></p>
+<p><strong>You will be ready to jump into the next phase of your journey when:</strong></p>
+<ul>
+<li>You’ve seen enough error messages that they no longer startle you. Instead, you know how to decipher what they mean and where to look for the problems in your code.</li>
+<li>You’re a pro at Googling for solutions. When you’re working to add a feature or see a confusing error message, you know what to search for to find the information you need.</li>
+<li>You’re able to reference code you’ve written in other parts of your application and follow patterns within them, rather than always seeking out step-by-step instructions.<h2 id="The-Inflection-Point-2-4-weeks-with-the-right-mentality"><a href="#The-Inflection-Point-2-4-weeks-with-the-right-mentality" class="headerlink" title="The Inflection Point (2-4 weeks with the right mentality)"></a><strong>The Inflection Point (2-4 weeks with the right mentality)</strong></h2>The inflection point stage is one of the most frustrating stages of learning to code, but in many ways, it’s the only stage that matters. It’s the point when you phase out of using tutorials and begin solving problems for which no one has lined up a solution for you.</li>
+</ul>
+<p>At some points, you will feel like you aren’t ready to tackle this phase and like you want to return to building something with an outline of exactly what to do. Don’t fall prey to this mentality. The reason you’ll feel frustrated is:</p>
+<h2 id="During-the-inflection-phase-you-will-be-coding-10-20-times-SLOWER-than-in-the-previous-phase"><a href="#During-the-inflection-phase-you-will-be-coding-10-20-times-SLOWER-than-in-the-previous-phase" class="headerlink" title="During the inflection phase, you will be coding 10-20 times SLOWER than in the previous phase."></a><strong><em>During the inflection phase, you will be coding 10-20 times SLOWER than in the previous phase.</em></strong></h2><p>You may start questioning yourself and wondering if you are actually capable of becoming a programmer. Feelings of insecurity and doubt are common in this stage.</p>
+<p>Despite the fact that you’ll feel like you’re learning and accomplishing things at a much slower rate, in reality, you are achieving the things that matter the most. While your domain-specific knowledge is screeching to a putter, everything you’re learning will be about procedural knowledge.</p>
+<p>Procedural knowledge is the ability to teach yourself what you don’t know along the way. When you need to implement a new feature, what type of Google search should you do? At this point in time, you’ll feel like you’re “in the dark” when it comes to many of the things you want to accomplish. Learning how to find the light on your own is critical because you can never know everything there is to know, so you need to be able to teach yourself how to solve the problem at hand.</p>
+<p>Most people do not realize that in order to learn to code, you need to learn both domain-specific and procedural knowledge.</p>
+<h2 id="For-the-rest-of-your-life-go-outside-your-limits-every-single-day"><a href="#For-the-rest-of-your-life-go-outside-your-limits-every-single-day" class="headerlink" title="For the rest of your life, go outside your limits every single day"></a><strong>For the rest of your life, go outside your limits every single day</strong></h2><p>Some software engineers stay inside their comfort zone once they find their footing. These types of programmers are known as maintenance programmers– not something you should strive to be. Instead, you should strive to go outside your limits every single day. The most common reason programmers quit their jobs is because “it’s not challenging anymore since I’ve solved all the interesting problems.”</p>
+<p>Rather than trying to pull coding projects into your comfort zone, you should be seeking out problems that are outside your current skill set. This is the only way to build on and expand your skills.</p>
+<p>In the words of a Firehose student upon passing his inflection point:</p>
+<p>I still feel like I’m in the deep end! I’m just getting more comfortable knowing that’s where I’ve got to be!</p>
+<h2 id="In-web-development-there-are-actually-two-inflection-points-that-will-come-together"><a href="#In-web-development-there-are-actually-two-inflection-points-that-will-come-together" class="headerlink" title="In web development, there are actually two inflection points that will come together."></a><strong>In web development, there are actually two inflection points that will come together.</strong></h2><p>The web development inflection point is the point when you become capable of building any database-driven application that you want. This means being able to build a web application with many pages that stores and retrieves information from a simple database. Web developers call this: “mastering CRUD.” At this phase, you should also be able to integrate with any 3rd party library (a ruby gem for example) simply by following the documentation provided on GitHub or a blog post.</p>
+<p>The algorithm and data structures inflection point is a less superficial inflection point, but it is actually more important. Someone who has conquered this point will have mastered the programming language they’re working in, in addition to mastering the fundamentals of programming and having a depth of knowledge for solving complex coding challenges.</p>
+<p>People who have conquered the algorithm and data structures inflection point will be able to:</p>
+<ul>
+<li>Write sorting algorithms</li>
+<li>Implement and reverse linked lists</li>
+<li>Understand and write programs leveraging stacks, queues, and trees</li>
+<li>Write computer programs using recursive or iterative solutions</li>
+</ul>
+<p>In short, once you pass this inflection point, you will have mastered data manipulation and will understand the performance implications of your code decisions. Traditional computer science degrees focus exclusively on getting students past the algorithm and data structures inflection point. Many universities teach this with programming languages that are generally not used in the industry, like Scheme, Racket, or LISP.</p>
+<p>In most technical interviews, the interviewer will assume you’ve passed the web development inflection point, given that’s easier to do, and focus their questions on evaluating your skill in algorithms and data structures. These questions will generally focus on the topics we mentioned above: sorting algorithms, reversing linked lists, and using stacks, queues, and trees.</p>
+<h2 id="Once-a-developer-has-passed-both-the-web-development-inflection-point-and-the-algorithm-and-data-structures-inflection-point-they-hold-the-keys-to-the-kingdom"><a href="#Once-a-developer-has-passed-both-the-web-development-inflection-point-and-the-algorithm-and-data-structures-inflection-point-they-hold-the-keys-to-the-kingdom" class="headerlink" title="Once a developer has passed both the web development inflection point and the algorithm and data structures inflection point, they hold the keys to the kingdom."></a><strong>Once a developer has passed both the web development inflection point and the algorithm and data structures inflection point, they hold the keys to the kingdom.</strong></h2><p>These developers will be able to solve challenges that intersect the two: complex algorithms that need to be built in the context of advanced web applications. This is at the heart of what professional web developers do every single day.</p>
+<h2 id="Consequences-of-the-Inflection-Point"><a href="#Consequences-of-the-Inflection-Point" class="headerlink" title="Consequences of the Inflection Point"></a><strong>Consequences of the Inflection Point</strong></h2><p>The biggest consequence of the inflection point will sound a bit counterintuitive when you first hear it. Take a deep breath in:</p>
+<h2 id="When-learning-to-code-domain-specific-knowledge-doesn’t-matter-in-the-grand-scheme-of-things"><a href="#When-learning-to-code-domain-specific-knowledge-doesn’t-matter-in-the-grand-scheme-of-things" class="headerlink" title="When learning to code, domain-specific knowledge doesn’t matter in the grand scheme of things."></a><strong>When learning to code, domain-specific knowledge doesn’t matter in the grand scheme of things.</strong></h2><p>Yup. I’m not joking– it really doesn’t matter that much at all. Once you pass the inflection point, these concepts will fluidly translate with just a week or two of tutorials, maybe even days!</p>
+<p><strong>What ultimately really matters is:</strong></p>
+<ul>
+<li>You have a solid grasp on a web development framework</li>
+<li>You have a solid grasp on writing algorithmically complex code in any programming language</li>
+</ul>
+<h2 id="Hiring-managers-want-developers-with-solid-web-development-and-algorithm-skills"><a href="#Hiring-managers-want-developers-with-solid-web-development-and-algorithm-skills" class="headerlink" title="Hiring managers want developers with solid web development and algorithm skills."></a><strong>Hiring managers want developers with solid web development and algorithm skills.</strong></h2><p>While I was working at PayPal, my team hired a Senior Rails Developer who had no experience in Rails– he had been coding a lot in Python, LISP, and Perl. Within a couple of days, he was already making a big impact. And within weeks: a huge impact. He quickly rose to become the technical team lead and was one of the best hiring decisions I’ve ever been involved in.</p>
+<p>Don’t sweat the stack. Many people will say things like, “AngularJS is hot these days,” “JavaScript is on the rise,” or “the latest fad is…” My response to that is: “so?” When you’re learning how to program, your singular goal should be to find the inflection point and annihilate it. Once you do, learning that new, sexy fad won’t be a difficult task at all.</p>
+<p>Become self-reliant. Having the ability to learn new coding skills without structured guidance means you no longer need to wait for anyone to help you out. This means that for the majority of what you need to learn, you can simply search the internet and read the various material on what you need to know.</p>
+<p>This doesn’t mean you immediately “know” everything, but just that everything is now “figure-out-able,” so in essence, you are unstoppable.</p>
+<h2 id="The-Skills-You-Will-Develop-During-the-Inflection-Point"><a href="#The-Skills-You-Will-Develop-During-the-Inflection-Point" class="headerlink" title="The Skills You Will Develop During the Inflection Point"></a><strong>The Skills You Will Develop During the Inflection Point</strong></h2><p>As a software developer, the best reference material is similar code that you have already written. When you fully understand the code you’ve written, you don’t need to commit all the details to memory. This means that the first question you should ask yourself when building a new feature is: “Have I built something similar before?” If the answer is yes, revisit the code and walk through the code line-by-line in your head. Re-explain to yourself what it’s doing and ask yourself, “could I use the same approach now?”</p>
+<p>Videos suck at explaining domain-specific details because they take so darned long to watch. Say you want to integrate with the Google Maps API. Once you’ve experienced doing so once, it can take less than a minute to open the code up in GitHub, copy the code, and paste it into a new project. Videos, on the other hand, can often take 10-30 minutes to re-watch.</p>
+<h2 id="Strategies-for-Passing-the-Inflection-Point-as-Efficiently-as-Possible"><a href="#Strategies-for-Passing-the-Inflection-Point-as-Efficiently-as-Possible" class="headerlink" title="Strategies for Passing the Inflection Point as Efficiently as Possible"></a><strong>Strategies for Passing the Inflection Point as Efficiently as Possible</strong></h2><p>Because passing the inflection point is the most important part of learning to code, you should set yourself up to make the process as smooth as possible. This means you should start preparing while you’re in the tutorial phase and maintain the right mindset during this period of time.</p>
+<p><strong>During the tutorial phase, take breaks from going over structured material and give yourself challenge problems along the way.</strong></p>
+<ul>
+<li>For every handful of lessons, try to do something that is outside the scope of the tutorial you’re following. If the tutorials you’re going through provide “challenges” or “self-directed” pieces, do all of them. Solving unguided challenges will give you the important experience of doing things without structured guidance.</li>
+<li>Try to use tutorials as little as possible. At Firehose, we often walk students through how to integrate certain gems or do things using the provided documentation. Rather than simply following the instructions explained in tutorials that are geared towards people who are just starting out, many students will follow the documentation and use the tutorials as a back-up. Note that documentation will treat you like a developer who has passed the inflection point. Getting comfortable reading and following documentation on GitHub will give you a leg up when you’re on your own.</li>
+<li>Focus on the essentials and use repetition. Learn how to do common things like spinning-up an application from scratch, pushing a new app to GitHub and Heroku, and building a database migration early on.</li>
+</ul>
+<p><strong>Pushing through the inflection point can be challenging. Here are some pointers to get you through it:</strong></p>
+<ul>
+<li>Understand that this is a difficult process and go easy on yourself. Also, set realistic expectations. You can’t compare your “superman”-level speed of going through tutorials to your “snail”-speed of learning things on your own. Keep in mind that you’re learning plenty, but at this phase, you’re learning a brand new skill of figuring new things out on your own.</li>
+<li>If you’re struggling with self-confidence, know that what you’re feeling is completely normal. Keep working. If you continue to struggle, try talking to someone who has recently passed the inflection point. They will be able to relate to the position you’re in and will assure you that what you’re experiencing is only temporary. Work consistently, but don’t overwork yourself. At this phase of the game, know that you can only be productive for around 6 hours a day at the most. Working in an exhausted state will only prolong the time you spend building up to the inflection point.<br>The best way to gain confidence at this stage is to power through any doubts you have. Your emotions may start to feel like a roller coaster. At times, you’ll feel like you’re on fire, but after 15 hours of struggling on the same problem, it’s very common to feel the polar opposite.</li>
+</ul>
+<p>It can be frustrating to have no idea if something will take you 5 minutes or 5 hours, but every time you power through and successfully implement a new feature, the rush of confidence will be everything you need. After solving a handful of hard problems without any help, you’ll be addicted to the feeling of building things outside your comfort zone.</p>
+<h2 id="How-to-know-when-you’ve-passed-the-inflection-point"><a href="#How-to-know-when-you’ve-passed-the-inflection-point" class="headerlink" title="How to know when you’ve passed the inflection point"></a><strong>How to know when you’ve passed the inflection point</strong></h2><p>The final stage of the inflection point process is acceptance. Acceptance that software development is a process of continuous learning. Acceptance that the feeling that you’ve successfully learned everything just means you should start thinking about solving more complicated problems.</p>
+<p><strong>Have you experienced the inflection point yet? Share this post and start a conversation with your friends– you would be surprised how many people have reached and surpassed this moment.</strong></p>
+<p>这篇文章非常长 也非常详细的讲述了学习编程的各个阶段的步骤和需要特别注意的地方。</p>
+<p>总结</p>
+<p><strong>辅导阶段（3-8 weeks）:</strong><br>这一阶段就是在学一门编程语言或者学习一门技术的时候，跟着教程或者书籍学习特定领域知识。通过3-8周的学习让那些特定的知识在你大脑中变成很自然的东西。这个阶段要特别注意注重细节，比如关键字的拼写，调试错误。不要忽略错误信息，要从错误信息中学习，debug 非常重要。教程不会给你带来信心，只会让你走远，真正的信心来自你用你所学的东西去解决问题。也就是我们常说的-成就感。学一门技术，不要总是学生思维，比如学习java时，想着我一定要把java基础学好，要系统的学习java。要有开发者思维，用所学的东西去解决一个问题。编程是终生学习的经历，很重要的一点就是：不要总是去等，你不可能学完有关编程所有的知识，等待的日子永远不会过去。</p>
+<p><strong>拐点（心态正确的2-4周）：</strong><br>是学习编程的最重要的阶段，也是最令人沮丧的阶段，是逐步利用教程并开始解决没有人为你找到解决方案的问题的关键。在这一阶段，你讲会比上一阶段编码慢10-20倍。会有自我怀疑和不安全感，尽管慢，但这一阶段却实现最重要的事情。在自己的余生中，每天都要超越自己的极限，要走出自己的舒适区。在web开发中有两个拐点，web开发和算法和数据结构拐点。<br>Web开发的转折点是您能够构建所需的任何数据库驱动的应用程序的时候。这意味着能够构建具有许多页面的Web应用程序，这些页面可以存储和检索来自简单数据库的信息。Web开发人员称之为：“掌握CRUD”。在此阶段，只需遵循GitHub或博客文章上提供的文档，您还应该能够与任何第三方库（例如ruby gem）集成。</p>
+<p>算法和数据结构拐点虽然不那么肤浅，但实际上更重要。征服了这一点的人将精通他们正在使用的编程语言，不仅精通编程的基础知识，而且具有解决复杂编码难题的丰富知识。</p>
+<p>克服了算法和数据结构拐点的人们将能够：</p>
+<ul>
+<li>写排序算法</li>
+<li>实现和反向链接列表</li>
+<li>利用堆栈，队列和树来理解和编写程序</li>
+<li>使用递归或迭代解决方案编写计算机程序</li>
+</ul>
+<p>简而言之，一旦您越过了这个拐点，您将掌握数据操作并了解代码决策对性能的影响。传统的计算机科学学位只专注于让学生超越算法和数据结构的拐点。许多大学使用行业中通常不使用的编程语言（例如Scheme，Racket或LISP）来教授这种语言。<br>在学习编程的时候，你的唯一目标应该是找到拐点并消除它。</p>
+<p><strong>拐点期间应该培养的技能:</strong> </p>
+<p>1.最好的参考资料是自己写的类似代码，在构建新功能时，应该先问自己：之前是否构建过类似的产品？如果是，阅读之前的代码，并问自己：我现在可以使用相同的方法吗？</p>
+<p>2.少看视频讲解，费时间。直接找相关的文档或者代码。</p>
+<p><strong>尽可能有效通过拐点的策略：</strong> </p>
+<ul>
+<li>少使用教程，多看文档</li>
+<li>专注于要素并重复使用。了解如何执行常见操作，例如从头开始分解应用程序，将新应用程序推送到GitHub和Heroku，以及尽早构建数据库迁移。</li>
+<li>这是一个困难的过程，对自己要轻松一点。</li>
+<li>保持信心，不要过度劳累。多与已经通过拐点的人交流。</li>
+</ul>
+<p><strong>如何知道何时通过拐点：</strong> 拐点的最后阶段是验收。接受软件开发是一个不断学习的过程。接受已成功学完一切的感觉，开始考虑解决更复杂的问题。</p>
+]]></content>
+      <tags>
+        <tag>artist</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据库初探(一）</title>
+    <url>/2020/03/08/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%9D%E6%8E%A2(%E4%B8%80)/</url>
+    <content><![CDATA[<p>这篇文章主要是描述在实际使用mysql时会用到的东西，一些常用命令等。而更深层的数据库设计等等和理论知识会在后面更新。<br>1.下载xampp软件包，他是一个服务器的套装，包含多款开源的服务器，例如MySQL，PHP…<br>下载地址：<a href="https://www.apachefriends.org/download.html" target="_blank" rel="noopener">xampp</a></p>
+<p>2.安装之后打开软件文件夹，运行xampp-control.exe开启服务 点击mysql右侧的start，再点击右侧的shell。</p>
+<p>3.连接Mysql服务器</p>
+<p><strong>mysql.exe -hlocalhost -P3306 -uroot -p</strong></p>
+<p>简写形式</p>
+<p><strong>mysql -uroot</strong></p>
+<p>3.常用Mysql管理命令(命令后有分号)</p>
+<p><strong>quit;</strong>             退出服务器的连接</p>
+<p><strong>show databases;</strong>   显示服务器上当前所有的数据库</p>
+<p><strong>use 数据库名;</strong>   进入指定的数据库</p>
+<p><strong>show tables;</strong>   显示当前数据库中所有的数据表</p>
+<p><strong>desc 表名称;</strong>   描述表中有哪些列</p>
+<p>4.Mysql常用的SQL命令<br>SQL(<strong>Structured Query Language</strong>),结构化查询语言，用于对关系型数据库服务器中的数据进行<strong><em>增删改查</em></strong>的操作。</p>
+<p>SQL语言最早是由IBM提出，后提交给了ISO，最终成为了数据库行业的标准语言，当前标准的SQL 命令可以被绝大多数的关系型数据库所支持。</p>
+<h2 id="SQL命令的两种执行方式"><a href="#SQL命令的两种执行方式" class="headerlink" title="SQL命令的两种执行方式"></a>SQL命令的两种执行方式</h2><p>(1)交互模式：客户端输入一行，点击回车，服务器执行一行。适用于临时性的查看数据。</p>
+<p>mysql -uroot 回车</p>
+<p>（2）脚本模式：客户端把要执行的命令写在一个文本文件中，一次性的提交给服务器执行。适用于批量的增删改查。脚本后缀为.sql。脚本内命令不区分大小写。</p>
+<p>mysql -uroot &lt; 脚本路径   回车即可</p>
+<h2 id="SQL-语法规范"><a href="#SQL-语法规范" class="headerlink" title="SQL 语法规范"></a>SQL 语法规范</h2><p>（1）每条SQL语句必须以英文结尾，一条语句可以跨越多行，见到分号则认为语句结束。</p>
+<p>（2）若第n行语句有错误，则此语句以及后续的语句都不能再执行。</p>
+<p>（3）SQL命令不区分大小写，习惯上数据库关键字用大写关键字用小写。</p>
+<h2 id="日常开发中常用的SQL命令"><a href="#日常开发中常用的SQL命令" class="headerlink" title="日常开发中常用的SQL命令"></a>日常开发中常用的SQL命令</h2><p>(1)丢弃指定的数据库，如果存在的话</p>
+<p><strong>DROP DATABASE IF EXISTS XX；</strong></p>
+<p>(2)创建新的数据库</p>
+<p><strong>CREATE DATABASE XX;</strong></p>
+<p>(3)进入刚刚创建的数据库</p>
+<p><strong>USE XX；</strong></p>
+<p>(4)创建保存数据的表</p>
+<p>示例创建一个student表</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE TABLE student(</span><br><span class="line">sid INT,</span><br><span class="line">name VARCHAR(8),</span><br><span class="line">sex VARCHAR(1),</span><br><span class="line">score INT</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>(5)向数据表中插入数据</p>
+<p>INSERT INTO student VALUE(‘1’,’tom’,’M’,’80’);</p>
+<p>(6)查询表中所有数据</p>
+<p>SELECT * FROM student;</p>
+<p>(7)修改数据</p>
+<p>UPDATE student SET score=’66’,sex=’F’ WHERE sid=’2’;</p>
+<p>(8)删除数据</p>
+<p>DELETE FROM student WHERE sid=’3’;</p>
+<h2 id="标准SQL语句分类"><a href="#标准SQL语句分类" class="headerlink" title="标准SQL语句分类"></a>标准SQL语句分类</h2><p><strong>DDL：Data Define Language</strong>    定义数据结构</p>
+<p>[<strong>CREATE/DROP/ALTER</strong>]</p>
+<p><strong>DML:Data Munipulate Language</strong> 操作数据</p>
+<p>[<strong>INSERT/DELETE/UPDATE</strong>]</p>
+<p><strong>DQL：Data Query Language</strong> 查询数据</p>
+<p>[<strong>SELECT</strong>]</p>
+<p><strong>DCL:Data Control Language</strong> 控制用户权限</p>
+<p>[<strong>GRANT(授权)/REVOKE(收权)</strong>]</p>
+<p>解决表单中中文乱码问题，设置数据库字符编码为Unicod，即UTF-8；</p>
+<p><img src="charset.PNG" alt=""></p>
+<p>(1)编辑器设置为UTF-8<br>(2)脚本第一行加</p>
+<p><strong>SET NAMES utf8;</strong></p>
+<p>(3)创建数据库是 CREAT DATABASE XX charset=utf8;</p>
+<h2 id="MySQL中的列类型"><a href="#MySQL中的列类型" class="headerlink" title="MySQL中的列类型"></a>MySQL中的列类型</h2><p>创建数据表的时候，指定的列可以存储的数据类型。</p>
+<p>CREAT TABLE book(bid <strong>列类型</strong>)</p>
+<p>(1)数值类型</p>
+<p>TINYINT 微整型，占1个字节 范围-128~127</p>
+<p>SMALLINT 小整型，占2个字节 范围-32768<br>~32767</p>
+<p>INT 整型，占4个字节<br>范围 -2147483648-2147483647</p>
+<p>BIGINT 大整型，占8个字节</p>
+<p>FLOAT 单精度浮点型，占4个字节范围比INT大的多，可能产生计算误差。</p>
+<p>DOUBLE 双精度浮点型，占8个字节，范围比BIGINT大的多</p>
+<p>DECIMAL(M,D) 定点小数，不会产生计算误差，M代表总的有效位数，D代表小数点后的有效位数</p>
+<p>BOOL 布尔值–不能加引号 实际上是TINYINT。</p>
+<p>(2)日期时间类型—必须添加引号</p>
+<p>DATE 日期型 ‘2018-12-31’</p>
+<p>TIME 时间型 ‘14:22:30’</p>
+<p>DATETIME 日期时间型 ‘2018-12-31 14:22:30’</p>
+<p>(3)字符串类型—必须添加引号</p>
+<p>VARCHAR(M) 变长字符串，不会产生空间浪费，操作速度相对较慢，M最大值65532.</p>
+<p>CHAR(M)  定长字符串，可能产生空间浪费，操作速度较快，M最大值是255：用于储存手机号码，身份证号等固定长度的字符。</p>
+<p>TEXT(M) 大型变长字符串，最多存2G。</p>
+<h2 id="列约束"><a href="#列约束" class="headerlink" title="列约束"></a>列约束</h2><p>MySQL 可以对插入的数据进行特定的验证，只有满足条件才允许插入到数据表中，否则被认为是非法的插入。</p>
+<p>例如：一个人的性别只能是男或者女，一个人的年龄0~100之间。</p>
+<p>(1)主键约束—PRIMARY KAY</p>
+<p>声明了主键列上的值不能出现重复，表中查询的纪录会按照主键有小到大排序–加快查找的速度。通常主键添加到编号列中。<br>注意：一个表中只能有一个主键</p>
+<p>(2)唯一约束—UNIQUE </p>
+<p>声明了唯一约束的列上不能插入重复的值，允许插入NULL,而且允许插入多个NULL</p>
+<p>(3)非空约束—NOT NULL</p>
+<p>声明了非空约束的列上不能插入NULL</p>
+<p>(4)默认值约束—DEFAULT</p>
+<p>可以使用DEFAULT 关键字声明默认值，有两种方式可以应用默认值</p>
+<p>INSERT INTO xz_laptop_famili VALUES(40,’苹果’，DEFAULT)；</p>
+<p>INSERT INTO xz_laptop_family(fid,fname) VALUES(50,’华硕’)；</p>
+<p>(5)检查约束—CHECK</p>
+<p>检查约束可以对插入的数据进行检验</p>
+<p>CREAT TABLE student(age TINYINT CHECK(age&gt;=18 AND age&lt;=60));</p>
+<p>mysql不支持检查约束，会降低数据的插入速度。</p>
+<p>(6)</p>
+<p>声明了外键约束的列，取值必须在另一个表的主键列上出现过，列类型要保持一致，取值可以是NULL。</p>
+<p>FOREIGN KEY(familyId) REFERENCES xz_laptop_family(fid)</p>
+<p>2.MySQL中的自增列</p>
+<p>AUTO_INCREMENT:自动增长，假如一个列声明了自增列，无需手动赋值，直接设置为NULL，会获取当前的最大值，然后加1插入。</p>
+<p>注意：自增列允许手动赋值<br>只适用于整型的主键列上</p>
+<p>3.简单查询</p>
+<p>(1)查询特定的列</p>
+<p>示例：查询所有员工的姓名，工资，生日</p>
+<p>SELECT ename，salary，birthday FROM emp；</p>
+<p>(2)查询所有的列</p>
+<p>SELECT * FROM emp；</p>
+<p>(3)给列起别名</p>
+<p>SELECT ename AS 姓名，salary AS 工资 FROM emp；</p>
+<p><strong>注意：AS关键字是可以省略的，保留空格。</strong></p>
+<p>(4)只显示不同的记录/合并相同的记录</p>
+<p>SELECT DISTINCT deptld(想合并的列) FROM emp;</p>
+<p>(5)在查询时执行计算</p>
+<p>示例：计算2*33/47-8+10</p>
+<p>SELECT 2*33/47-8+10;</p>
+<p>练习：查询出所有员工的姓名及其年薪</p>
+<p>SELECT ename，salary*12 FROM emp；</p>
+<p>(6)查询结果集的排序</p>
+<p>示例:查询所有的部门，结果按照部门编号升序排序</p>
+<p>SELECT * FROM dept ORDER BY did(部门编号) ASC;#ascendant</p>
+<p>降序</p>
+<p>SELECT * FROM dept ORDER BY did DESC;#descendant</p>
+<p>练习：查询所有员工，如果按照工资降序排序，如果工资相同，按照姓名排序。</p>
+<p>SELECT * FROM emp ORDER BY salary DESC，ename;</p>
+<p><strong>ORDER BY 可以按照数值，日期/时间，字符串来排序 默认按照ASC升序排列</strong></p>
+<p>(7)条件查询</p>
+<p>示例：查询出编号为5的员工所有信息</p>
+<p>SELECT * FROM emp WHERE eid=5;</p>
+<p>查询出1991-1-1后出生的员工</p>
+<p>SELECT * FROM emp WHERE birthday &gt;’1991-1-1’;</p>
+<p>查询出没有明确部门的员工的所有信息</p>
+<p>SELECT * FROM emp WHERE deptld IS NULL；</p>
+<p>查询出有明确部门的员工</p>
+<p>SELECT * FROM emp WHERE deptld IS NOT NULL;</p>
+<p>练习：查询出工资大于600的女员工所有信息</p>
+<p>SELECT * FROM emp WHERE salary &gt; 6000 AND sex = 0;</p>
+<p>查询出工资为5000以下，7000以上的员工的所有信息</p>
+<p>SELECT * FROM emp WHERE salary &lt;5000 OR salary &gt;7000;</p>
+<p>查询出10号部门和30号部门员工所有信息</p>
+<p>SELECT * FROM emp WHERE deptld = 10 OR deptld = 30;</p>
+<p>SELECT * FROM emp WHERE deptld IN(10,30);</p>
+<p>……NOT IN(10,30);</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">IS NULL&#x2F;IS NOT NULL</span><br><span class="line">AND&#x2F;OR</span><br><span class="line">BETWEEN .. AND..&#x2F;NOT BETWEEN ..AND..</span><br><span class="line">IN()&#x2F;NOT IN()</span><br></pre></td></tr></table></figure>
+
+<p>(8)模糊条件查询</p>
+<p>示例：查询出姓名含有字母e的员工所有信息</p>
+<p>SELECT * FROM emp WHERE ename LIKE ‘%e%’</p>
+<p>练习：查询出姓名中以e结尾的员工所有信息</p>
+<p>SELECT * FROM emp WHERE ename LIKE ‘%e’;</p>
+<p><strong>SQL中提供了两模糊查询的字符</strong></p>
+<ul>
+<li>%   可以匹配任意多个字符   &gt;=0</li>
+<li>_   可以匹配任意一个字符   =1</li>
+</ul>
+<p><strong>注意:以上两个匹配不能和=使用，必须使用LIIKE关键字</strong></p>
+<p>(9)分页查询</p>
+<p>假如查询的结果集中有太多的数据，一次显示不完，需要分页显示。</p>
+<p>需要有两个条件：当前的页码，每页的数据量</p>
+<p>SELECT * FROM emp LIMIT start，count;</p>
+<p>start:是一个数字，从结果集中的哪1条开始读取，第一条称为0。</p>
+<p>count：是一个数字，最多读取的行数。</p>
+<p>start=(页码-1)*count</p>
+<p>下篇博客带来MySQL的复杂条件查询</p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据库初探(二)</title>
+    <url>/2020/03/09/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%9D%E6%8E%A2(%E4%BA%8C)/</url>
+    <content><![CDATA[<h2 id="复杂查询—聚合查询-分组查询"><a href="#复杂查询—聚合查询-分组查询" class="headerlink" title="复杂查询—聚合查询/分组查询"></a>复杂查询—聚合查询/分组查询</h2><p>示例：查询出所有员工的数量</p>
+<p>SELECT COUNT(eid) FROM emp;</p>
+<p>练习：使用员工部门编号获取员工数量</p>
+<p>SELECT COUNT(deptld) FROM emp;#这种方法不会算上NULL。</p>
+<p>SELECT COUNT(*) FROM emp; #推荐写法</p>
+<p>函数：功能体，接收若干个数据，返回特定的结果</p>
+<ol>
+<li><strong>聚合函数</strong></li>
+</ol>
+<p><strong>COUNT()/SUM()/AVG()/MAX()/MIN()</strong></p>
+<p><strong>分组查询：只能查询分组条件和聚合函数</strong></p>
+<p>查询出每个部门员工的最高工资</p>
+<p>SELECT MAX(salary) FROM GROUP BY deptld;</p>
+<p>练习：查询出男女员工的平均工资，最高工资，最低工资</p>
+<p>SELECT sex,AVG(salary),MAX(salary),MIN(salary) GROUP BY  sex;</p>
+<p><strong>YEAR() 获取日期中的年份</strong><br><strong>MONTH()获取日期中的月份</strong></p>
+<p>查询1991年出生的员工</p>
+<p>SELECT * FROM emp WHERE YEAR(birthday)=’1991’;</p>
+<ol start="2">
+<li>复杂查询—-子查询</li>
+</ol>
+<p>本质上就是一个SQL语句的查询结果作为另一个SQL语句的查询条件</p>
+<p>示例：查询出研发部员工的所有信息</p>
+<p>步骤1：查询研发部的部门编号</p>
+<p>SELECT did FROM dept WHERE dname=’研发部’;#10</p>
+<p>步骤2：使用编号查询员工</p>
+<p>SELECT * FROM emp WHERE deptId=10;</p>
+<p>综合：</p>
+<p>SELECT * FROM emp WHERE deptId=(SELECT did FROM dept WHERE dname=’研发部’);</p>
+<p>练习：查询比tom工资高的员工的所有信息</p>
+<p>SELECT * FROM emp WHERE salary&gt;(SELECT salary FROM emp WHERE ename=’tom’);</p>
+<ol start="3">
+<li>复杂查询—-多表查询</li>
+</ol>
+<p>示例：查询出所有员工的姓名及其所在部门的名称</p>
+<p>SELECT ename,dname FROM emp,dept;</p>
+<p>这种查询方式会出现笛卡尔积的现象</p>
+<p>SELECT ename，dname FROM emp，dept WHERE deptld=did;</p>
+<p><strong>上述语法无法查询出没有部门的员工，也不能查询出没有员工的部门</strong></p>
+<p>(1)内连接 INNER JOIN .. ON –和之前的结果一样</p>
+<p>SELECT ename，dname FROM emp INNER JOIN dept ON deptId = did;</p>
+<p>(2)左外连接 LEFT OUTER JOIN .. ON</p>
+<p>SELECT ename，dname FROM emp LEFT (OUTER) JOIN dept ON deptId=did;</p>
+<p>查询结果是左侧表中的所有的纪录，即使右侧没有对应的纪录。OUTER 可以省略</p>
+<p>(3)右外连接 RIGHT (OUTER) JOIN .. ON</p>
+<p>SELECT ename，dname FROM emp RIGHT OUTER JOIN dept ON deptId=did；</p>
+<p>显示右侧表中的所有纪录，OUTER 可以省略</p>
+<p>(4)全连接 FULL JOIN</p>
+<p>显示左侧和右侧表中所有的纪录—MySQL 不支持</p>
+<p>(SELECT ename FROM emp_bj)<br>UNION<br>(SELECT ename FROM emp_sh);</p>
+<p><strong>MySQL中的全连接</strong><br>(SELECT ename,dname FROM emp LEFT JOIN dept ON deptId=did)<br>UNION<br>(SELECT ename,dname FROM emp RIGHT JOIN dept ON deptId=did);</p>
+<p><strong>UNION</strong> 合并相同的纪录</p>
+<p><strong>UNION ALL</strong> 不合并相同的纪录</p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
+      </tags>
+  </entry>
+</search>
